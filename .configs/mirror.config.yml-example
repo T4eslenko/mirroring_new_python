@@ -1,15 +1,3 @@
-# (Optional) Global filters, will be applied in order
-#filters:
- # - ForwardFormatFilter: # Filter name under telemirror/messagefilters.py
-      # Filters arguments
- #     format: "{message_text}\n\nForwarded from [{channel_name}]({message_link})"
- # - EmptyMessageFilter
- # - UrlMessageFilter:
- #     blacklist: !!set
- #       ? t.me
- # - SkipUrlFilter:
- #     skip_mention: false
-
 # (Optional) Global settings
 disable_edit: true
 disable_delete: true
@@ -23,7 +11,7 @@ directions:
       - AllowWithKeywordsFilter:
           keywords: !!set
             ? "латушк"
-          lookup_whole_word: false
+          lookup_whole_word: false #задает не точный поиск
   - from: [-1002049063230]
     to: [-1002146891462]
     filters:
