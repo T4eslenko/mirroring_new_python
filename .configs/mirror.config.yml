@@ -18,7 +18,7 @@ mode: forward # or copy
 # (Required) Mirror directions
 directions:
   - from: [-1002049063230]
-    to: [-1001696929712]
+    to: [-1001991223932]
     filters:
       - AllowWithKeywordsFilter:
           keywords: !!set
