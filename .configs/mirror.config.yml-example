@@ -1,44 +1,36 @@
 # (Optional) Global filters, will be applied in order
-filters:
-  - ForwardFormatFilter: # Filter name under telemirror/messagefilters.py
+#filters:
+ # - ForwardFormatFilter: # Filter name under telemirror/messagefilters.py
       # Filters arguments
-      format: "{message_text}\n\nForwarded from [{channel_name}]({message_link})"
-  - EmptyMessageFilter
-  - UrlMessageFilter:
-      blacklist: !!set
-        ? t.me
-  - SkipUrlFilter:
-      skip_mention: false
+ #     format: "{message_text}\n\nForwarded from [{channel_name}]({message_link})"
+ # - EmptyMessageFilter
+ # - UrlMessageFilter:
+ #     blacklist: !!set
+ #       ? t.me
+ # - SkipUrlFilter:
+ #     skip_mention: false
 
 # (Optional) Global settings
 disable_edit: true
 disable_delete: true
-mode: copy # or forward
+mode: forward # or copy
 
 # (Required) Mirror directions
 directions:
-  - from: [-1001, -1002, -1003]
-    to: [-100203]
-
-  - from: [-1000#3] # forwards from topic to topic
-    to: [-1001#4]
-
-  - from: [-100226]
-    to: [-1006, -1008]
-    # Overwrite global settings
-    disable_edit: false
-    disable_delete: false
-    mode: forward
-    # Overwrite global filters
+  - from: [-1002049063230]
+    to: [-1001696929712]
     filters:
-      - UrlMessageFilter:
-          blacklist: !!set
-            ? t.me
-      - KeywordReplaceFilter:
-          keywords:
-            "google.com": "bing.com"
-          regex: false # treat keywords as plain text
-      - SkipWithKeywordsFilter:
+      - AllowWithKeywordsFilter:
           keywords: !!set
-            ? "stopword"
-          regex: true # treat keywords as regex expr
+            ? "латушк"
+          lookup_whole_word: false
+  - from: [-1002049063230]
+    to: [-1002146891462]
+    filters:
+      - AllowWithKeywordsFilter:
+          keywords: !!set
+            ? "ціханоўск"
+            ? "тихановск"
+            ? "тихоновск"
+          lookup_whole_word: false
+ 
